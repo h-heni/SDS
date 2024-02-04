@@ -1,0 +1,88 @@
+﻿@model Caisse
+@{
+    List<ContreBon> contreBonList = ViewBag.List as List<ContreBon>;
+}
+<form id="form2" asp-action="ContreBonCalcul" asp-controller="Home">
+    @if (contreBonList != null)
+    {
+        for (int i = 0; i < Model.ListContreBon.Count; i++)
+        {
+            <input type="hidden" asp-for="ListContreBon[i].Valeur" value="@Model.ListContreBon[i].Valeur" />
+            <input type="hidden" asp-for="ListContreBon[i].Nombre" value="@Model.ListContreBon[i].Nombre" />
+        }
+    }
+
+    @* hidden input from the first form *@
+    <td><input type="hidden" step="0.001" asp-for="Fond" /></td>
+    <td><input type="hidden" step="0.001" asp-for="Espece" /></td>
+    <td><input type="hidden" step="0.001" asp-for="Poste1" /></td>
+    <td><input type="hidden" step="0.001" asp-for="Cheque" /></td>
+    <td><input type="hidden" step="0.001" asp-for="Poste2" /></td>
+    <td><input type="hidden" step="0.001" asp-for="TPE" /></td>
+    <td><input type="hidden" step="0.001" asp-for="Poste3" /></td>
+    <td><input type="hidden" step="0.001" asp-for="Credit" /></td>
+    <td><input type="hidden" step="0.001" asp-for="Lavage" /></td>
+    <td><input type="hidden" step="0.001" asp-for="SNDP" /></td>
+    <td><input type="hidden" step="0.001" asp-for="Filtres" /></td>
+    <td><input type="hidden" step="0.001" asp-for="Depenses" /></td>
+    <td><input type="hidden" step="0.001" asp-for="Lubrifiant" /></td>
+    <td><input type="hidden" step="0.001" asp-for="CreditGerant" /></td>
+    <td><input type="hidden" step="0.001" asp-for="Autre" /></td>
+    <td><input type="hidden" step="0.001" asp-for="SortieContreBon" /></td>
+
+    <div>
+        <h4>Ajouter Tous les contres Bons</h4>
+
+        <div id="variablesContainer">
+            <label for="variableInput1">Contre Bon:</label>
+            <input type="number" id="variableInput1" step="0.001" asp-for="ContreBon.Valeur">
+            <label for="variableInput2">Nombre:</label>
+            <input type="number" id="variableInput2" step="0.001" asp-for="ContreBon.Nombre">
+            <input type="submit" value="Ajouter"> <br />
+        </div>
+
+        <div>
+            <label for="result">Result:</label>
+            @if (ViewBag.Total!=null)
+            {
+                <span id="result"><input type="hidden" step="0.001" asp-for="ContreBonTotal" value="@ViewBag.Total" /> @ViewBag.Total</span>
+            }
+            else 
+            {
+                <span id="result"><input type="hidden" step="0.001" asp-for="ContreBonTotal" value="@Model.ContreBonTotal" /> @Model.ContreBonTotal</span>
+            }
+        </div>
+    </div>
+</form>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form1Inputs = document.getElementById('form1').getElementsByTagName('input');
+        var form2Inputs = document.getElementById('form2').getElementsByTagName('input');
+
+        for (var i = 0; i < form1Inputs.length; i++) {
+            form1Inputs[i].addEventListener('input', function () {
+                // Find the corresponding hidden input in form2 and update its value
+                var matchingInput = document.getElementById('form2').querySelector('input[name="' + this.name + '"]');
+                if (matchingInput) {
+                    matchingInput.value = this.value;
+                }
+            });
+        }
+
+        for (var j = 0; j < form2Inputs.length; j++) {
+            if (form2Inputs[j].type === 'hidden') {
+                form2Inputs[j].addEventListener('input', function () {
+                    // Find the corresponding input in form1 and update its value
+                    var matchingInput = document.getElementById('form1').querySelector('input[name="' + this.name + '"]');
+                    if (matchingInput) {
+                        matchingInput.value = this.value;
+                    }
+                });
+            }
+        }
+    });
+</script>

@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Poste";
+}
+@model History
+<div class="d-flex g-5">
+
+    <div class="container-sm col-5">
+
+        <h3 class="mb-5">choisissez le pote que vous souhaitez afficher</h3>
+        <form asp-action="HistoryRapport" asp-controller="Home" class="form-control text-center">
+            <input type="hidden" asp-for="Date" value="@Model.Date"/>
+            <input type="hidden" asp-for="Choix" value="@Model.Choix"/>
+            <div class="form-check">
+                <input class="form-check-input" asp-for="Poste" type="radio" id="flexRadioDefault1" value="Poste_1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Poste 1
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" asp-for="Poste" type="radio" id="flexRadioDefault1" value="Poste_2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Poste 2
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" asp-for="Poste" type="radio" id="flexRadioDefault1" value="Poste_3">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Poste 3
+                </label>
+            </div>
+            <div class="container d-flex justify-content-end">
+
+                <input type="submit" value="Terminé" class="btn btn-primary">
+
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,271 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Rapport
+
+<main>
+
+    <form asp-action="Rapport" asp-controller="Home" class="form-control">
+        <section>
+
+            <h1 class="mb-5 text-center" id="title">Rapport</h1>
+            <div class="col-10">
+
+                <div class="d-flex my-3 align-items-center gap-3">
+
+                    <label class="col-2">JOURNEE</label>
+
+                    <input type="date" class="form-control col" asp-for="Journee" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+
+                </div>
+
+                <div class="d-flex my-3 align-items-center gap-3">
+
+                    <label class="col-2">POSTE</label>
+
+                    <select class="form-select form-select-sm" aria-label="Large select example" asp-for="Poste"> 
+
+                        <option selected></option>
+
+                        <option value="Post_1">POSTE 1</option>
+
+                        <option value="Poste_2">POSTE 2</option>
+
+                        <option value="Poste_3">POSTE 3</option>
+
+                    </select>
+
+                </div>
+
+                <div class="d-flex my-3 align-items-center gap-3">
+
+                    <label class="col-2">EQUIPE</label>
+
+                    <input type="text" class="form-control"  asp-for="Equipe">
+                </div>
+
+            </div>
+            <h3>Prix</h3>
+            <div class="row gap-3">
+                <div class="col">
+                    <div class="d-flex my-3 align-items-center gap-5">
+
+                        <label class="col-2">Gasoil</label>
+
+                        <input type="text" class="form-control" asp-for="GasoilPrice">
+                    </div>
+
+                </div>
+
+                <div class="col">
+                    <div class="d-flex my-3 align-items-center gap-5">
+
+                        <label class="col-2">SSP</label>
+
+                        <input type="text" class="form-control" asp-for="SansPlombPrice">
+                    </div>
+
+                </div>
+
+                <div class="col">
+                    <div class="d-flex my-3 align-items-center gap-5">
+
+                        <label class="col-2">G50</label>
+
+                        <input type="text" class="form-control" asp-for="G50Price">
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <br />
+        <hr />
+        <section>
+        
+                <div class="col-10">
+                    <h3>G1</h3>
+                    <div class="row gap-3">
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">ID</label>
+
+                                <input type="text" class="form-control" asp-for="G1Depart">
+                            </div>
+
+                        </div>
+                    
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">IF</label>
+
+                                <input type="text" class="form-control" asp-for="G1Final">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-10">
+                    <h3>G2-1</h3>
+                    <div class="row gap-3">
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">ID</label>
+
+                                <input type="text" class="form-control"  asp-for="G2_1Depart">
+                            </div>
+
+                        </div>
+                    
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">IF</label>
+
+                                <input type="text" class="form-control" asp-for="G2_1Final">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-10">
+                    <h3>G2-2</h3>
+                    <div class="row gap-3">
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">ID</label>
+
+                                <input type="text" class="form-control"  asp-for="G2_2Depart">
+                            </div>
+
+                        </div>
+                    
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">IF</label>
+
+                                <input type="text" class="form-control" asp-for="G2_2Final">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <hr />
+                <div class="col-10">
+                    <h3>SSP1</h3>
+                    <div class="row gap-3">
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">ID</label>
+
+                                <input type="text" class="form-control"  asp-for="SSP1Depart">
+                            </div>
+
+                        </div>
+                    
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">IF</label>
+
+                                <input type="text" class="form-control" asp-for="SSP1Final">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-10">
+                    <h3>SSP2</h3>
+                    <div class="row gap-3">
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">ID</label>
+
+                                <input type="text" class="form-control"  asp-for="SSP2Depart">
+                            </div>
+
+                        </div>
+                    
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">IF</label>
+
+                                <input type="text" class="form-control" asp-for="SSP2Final">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-10">
+                    <h3>SSP3</h3>
+                    <div class="row gap-3">
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">ID</label>
+
+                                <input type="text" class="form-control"  asp-for="SSP3Depart">
+                            </div>
+
+                        </div>
+                    
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">IF</label>
+
+                                <input type="text" class="form-control" asp-for="SSP3Final">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <hr />
+                <div class="col-10">
+                    <h3>G501</h3>
+                    <div class="row gap-3">
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">ID</label>
+
+                                <input type="text" class="form-control"  asp-for="G501Depart">
+                            </div>
+
+                        </div>
+                    
+                        <div class="col">
+                            <div class="d-flex my-3 align-items-center gap-1">
+
+                                <label class="col-2">IF</label>
+
+                                <input type="text" class="form-control" asp-for="G501Final">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+        </section>
+        <div class="container d-flex justify-content-end">
+
+            <input type="submit" value="Terminé" class="btn btn-primary">
+
+        </div>
+    </form>
+</main>

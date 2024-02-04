@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = "Historique Rapport";
+}
+@model Rapport
+
+<main>
+
+    <h2> Date: @ViewBag.Date</h2>
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>P</th>
+                    <th>Poste</th>
+                    <th>Equipe</th>
+                    <th>Gasoil 50 Prix</th>
+                    <th>Gasoil Prix</th>
+                    <th>Sans Plomb Prix</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <td>@Model.Poste</td>
+                    <td>@Model.Equipe</td>
+                    <td>@Model.G50Price</td>
+                    <td>@Model.GasoilPrice</td>
+                    <td>@Model.SansPlombPrice</td>
+                    
+                </tr>
+            </tbody>
+        </table>                   
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>P</th>
+                    <th>G1</th>
+                    <th>G2-1</th>
+                    <th>G2-2</th>
+                    <th>SSP1</th>
+                    <th>SSP2</th>
+                    <th>SSP3</th>
+                    <th>G501</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <td>@Model.G1Depart</td>
+                    <td>@Model.G2_1Depart</td>
+                    <td>@Model.G2_2Depart</td>
+                    <td>@Model.SSP1Depart</td>
+                    <td>@Model.SSP2Depart</td>
+                    <td>@Model.SSP3Depart</td>
+                    <td>@Model.G501Depart</td>
+                </tr>
+                <tr>
+                    <th>IF</th>
+                    <td>@Model.G1Final</td>
+                    <td>@Model.G2_1Final</td>
+                    <td>@Model.G2_2Final</td>
+                    <td>@Model.SSP1Final</td>
+                    <td>@Model.SSP2Final</td>
+                    <td>@Model.SSP3Final</td>
+                    <td>@Model.G501Final</td>
+                </tr>
+                <tr>
+                    <th>D.I.F.F</th>
+                    <td>@Model.G1Diff</td>
+                    <td>@Model.G2_1Diff</td>
+                    <td>@Model.G2_2Diff</td>
+                    <td>@Model.SSP1Diff</td>
+                    <td>@Model.SSP2Diff</td>
+                    <td>@Model.SSP3Diff</td>
+                    <td>@Model.G501Diff</td>
+                </tr>
+                <tr>
+                    <th>C.A</th>
+                    <td>@Model.G1Cash</td>
+                    <td>@Model.G2_1Cash</td>
+                    <td>@Model.G2_2Cash</td>
+                    <td>@Model.SSP1Cash</td>
+                    <td>@Model.SSP2Cash</td>
+                    <td>@Model.SSP3Cash</td>
+                    <td>@Model.G501Cash</td>
+                </tr>
+                <tr>
+                    <th>TOTAL Général</th>                
+                    <td>@Model.Total</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+        
+</main>

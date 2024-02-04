@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Caisse";
+}
+@model Caisse
+@{
+    List<ContreBon> contreBonList = ViewBag.List as List<ContreBon>;
+}
+<partial name="_ContreBonCalcul">
+<span class="alert-danger" asp-validation-for="Fond"></span>
+<br>
+
+    <form id="form1" asp-action="CaisseCalcul" asp-asp-controller="Home">
+    @if (contreBonList != null)
+    {
+        for (int i = 0; i < Model.ListContreBon.Count; i++)
+        {
+            <input type="hidden" asp-for="ListContreBon[i].Valeur" value="@Model.ListContreBon[i].Valeur" />
+            <input type="hidden" asp-for="ListContreBon[i].Nombre" value="@Model.ListContreBon[i].Nombre" />
+        }
+        
+    }
+
+    <div class="d-flex my-3 align-items-center gap-3">
+
+    <label class="col-2">Recapitulation du</label>
+
+            <input type="date" class="form-control col" asp-for="Journee" value="ViewBag.Journeee" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+
+</div>
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>Service</th>
+            <th>Montant</th>
+            <th>Recette</th>
+            <th>Montant</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Fond de Caisse</th>
+                <td><input step="0.001" type="number" asp-for="Fond" /></td>
+            <th>Especes</th>
+                <td><input step="0.001" type="number" asp-for="Espece" /></td>
+            </tr>
+        <tr>
+            <th>Poste 1</th>
+                <td><input step="0.001" type="number" asp-for="Poste1" /></td>
+            <th>Chéques</th>
+                <td><input step="0.001" type="number" asp-for="Cheque" /></td>
+            </tr>
+        <tr>
+            <th>Poste 2</th>
+            <td><input step="0.001" type="number" asp-for="Poste2"/></td>
+            <th>TPE</th>
+            <td><input step="0.001" type="number" asp-for="TPE" /></td>
+            </tr>
+        <tr>
+            <th>Poste 3</th>
+            <td><input step="0.001" type="number" asp-for="Poste3" /></td>
+            <th>Crédit</th>
+            <td><input step="0.001" type="number"  asp-for="Credit" /></td>            
+        </tr>
+        <tr>
+            <th>Lavage</th>
+            <td><input step="0.001" type="number" asp-for="Lavage" /></td>
+            <th>SNDP</th>
+            <td><input step="0.001" type="number"  asp-for="SNDP" /></td>            
+        </tr>
+        <tr>
+            <th>Filtres</th>
+            <td><input step="0.001" type="number" asp-for="Filtres" /></td>
+            <th>Dépenses</th>
+            <td><input step="0.001" type="number"  asp-for="Depenses" /></td>            
+        </tr>
+        <tr>
+            <th>Lubrifiant</th>
+            <td><input step="0.001" type="number" asp-for="Lubrifiant" /></td>
+            <th>Crédit Gérant</th>
+            <td><input step="0.001" type="number"  asp-for="CreditGerant" /></td>            
+        </tr>
+        <tr>
+            <th>Autre</th>
+            <td><input step="0.001" type="number" asp-for="Autre" /></td>
+            <th>Sortie Contre Bon</th>
+            <td><input step="0.001" type="number"  asp-for="SortieContreBon" /></td>            
+        </tr>
+        <tr>
+            <th>Contre Bon</th>
+                @if (ViewBag.Total!=null)
+                {
+                    <td>@ViewBag.Total</td>
+                }
+                else if (ViewBag.Total == null)
+                    {
+                        <td><input hidden asp-for="ContreBonTotal" value="@Model.ContreBonTotal" />@Model.ContreBonTotal</td>
+                }
+        </tr>
+        
+
+    </tbody>
+</table>
+<div class="container d-flex justify-content-end">
+
+        <input type="submit" value="Terminer" class="btn btn-primary">
+</div>
+</form>
+
+ 
+

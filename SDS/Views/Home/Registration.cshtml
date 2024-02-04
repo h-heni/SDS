@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Registration";
+}
+@model User
+<div class="d-flex g-5">
+
+    <div class="container-sm col-5">
+
+        <h1 class="mb-5">Registration</h1>
+        <form asp-action="Registration" asp-controller="Home" class="form-control text-center">
+            <div class="mb-3">
+                <span class="alert-danger" asp-validation-for="Login"></span><br>
+                <label class="col-4" asp-for="Login"></label>
+                <input asp-for="Login">
+            </div>            
+            <div class="mb-3">
+                <span class="alert-danger" asp-validation-for="Password"></span><br>
+                <label class="col-4" asp-for="Password"></label>
+                <input asp-for="Password">
+            </div>
+            <div class="mb-3">
+                <span class="alert-danger" asp-validation-for="PwConfirm"></span><br>
+                <label class="col-4" asp-for="PwConfirm"></label>
+                <input asp-for="PwConfirm">
+            </div> <br>
+            <input type="submit" value="Submit" class="btn btn-secondary">
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Tableau de Rapport";
+}
+@model Rapport
+
+<main>
+    <form asp-action="SaveInDb" asp-asp-controller="Home">  
+        <input type="hidden" asp-for="Journee" value="@Model.Journee" />
+        <input type="hidden" asp-for="Poste" value="@Model.Poste" />
+        <input type="hidden" asp-for="Equipe" value="@Model.Equipe" />
+        <input type="hidden" asp-for="G50Price" value="@Model.G50Price" />
+        <input type="hidden" asp-for="GasoilPrice" value="@Model.GasoilPrice" />
+        <input type="hidden" asp-for="SansPlombPrice" value="@Model.SansPlombPrice" />
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>P</th>
+                    <th>G1</th>
+                    <th>G2-1</th>
+                    <th>G2-2</th>
+                    <th>SSP1</th>
+                    <th>SSP2</th>
+                    <th>SSP3</th>
+                    <th>G501</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <td><input type="hidden" asp-for="G1Depart" />@Model.G1Depart</td>
+                    <td><input type="hidden" asp-for="G2_1Depart" />@Model.G2_1Depart</td>
+                    <td><input type="hidden" asp-for="G2_2Depart" />@Model.G2_2Depart</td>
+                    <td><input type="hidden" asp-for="SSP1Depart" />@Model.SSP1Depart</td>
+                    <td><input type="hidden" asp-for="SSP2Depart" />@Model.SSP2Depart</td>
+                    <td><input type="hidden" asp-for="SSP3Depart" />@Model.SSP3Depart</td>
+                    <td><input type="hidden" asp-for="G501Depart" />@Model.G501Depart</td>
+                </tr>
+                <tr>
+                    <th>IF</th>
+                    <td><input type="hidden" asp-for="G1Final" />@Model.G1Final</td>
+                    <td><input type="hidden" asp-for="G2_1Final" />@Model.G2_1Final</td>
+                    <td><input type="hidden" asp-for="G2_2Final" />@Model.G2_2Final</td>
+                    <td><input type="hidden" asp-for="SSP1Final" />@Model.SSP1Final</td>
+                    <td><input type="hidden" asp-for="SSP2Final" />@Model.SSP2Final</td>
+                    <td><input type="hidden" asp-for="SSP3Final" />@Model.SSP3Final</td>
+                    <td><input type="hidden" asp-for="G501Final" />@Model.G501Final</td>
+                </tr>
+                <tr>
+                    <th>D.I.F.F</th>
+                    <td><input type="hidden" asp-for="G1Diff" />@Model.G1Diff</td>
+                    <td><input type="hidden" asp-for="G2_1Diff" />@Model.G2_1Diff</td>
+                    <td><input type="hidden" asp-for="G2_2Diff" />@Model.G2_2Diff</td>
+                    <td><input type="hidden" asp-for="SSP1Diff" />@Model.SSP1Diff</td>
+                    <td><input type="hidden" asp-for="SSP2Diff" />@Model.SSP2Diff</td>
+                    <td><input type="hidden" asp-for="SSP3Diff" />@Model.SSP3Diff</td>
+                    <td><input type="hidden" asp-for="G501Diff" />@Model.G501Diff</td>
+                </tr>
+                <tr>
+                    <th>C.A</th>
+                    <td><input type="hidden" asp-for="G1Cash" />@Model.G1Cash</td>
+                    <td><input type="hidden" asp-for="G2_1Cash" />@Model.G2_1Cash</td>
+                    <td><input type="hidden" asp-for="G2_2Cash" />@Model.G2_2Cash</td>
+                    <td><input type="hidden" asp-for="SSP1Cash" />@Model.SSP1Cash</td>
+                    <td><input type="hidden" asp-for="SSP2Cash" />@Model.SSP2Cash</td>
+                    <td><input type="hidden" asp-for="SSP3Cash" />@Model.SSP3Cash</td>
+                    <td><input type="hidden" asp-for="G501Cash" />@Model.G501Cash</td>
+                </tr>
+                <tr>
+                    <th>TOTAL Général</th>                
+                    <td><input type="hidden" asp-for="Total" />@Model.Total</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="container d-flex justify-content-end">
+
+            <input type="submit" value="Terminé" class="btn btn-primary">
+
+        </div>
+    </form>
+</main>

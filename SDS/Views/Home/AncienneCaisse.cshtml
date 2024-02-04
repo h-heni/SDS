@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Historique Caisse";
+}
+@model Caisse
+
+
+
+
+
+<div class="d-flex my-3 align-items-center gap-3">
+
+    <h3 class="col-2">Recapitulation du @ViewBag.Date</h3>
+
+
+</div>
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>Service</th>
+            <th>Montant</th>
+            <th>Recette</th>
+            <th>Montant</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Fond de Caisse</th>
+            <td>@Model.Fond</td>
+            <th>Especes</th>
+            <td>@Model.Espece</td>
+        </tr>
+        <tr>
+            <th>Poste 1</th>
+            <td>@Model.Poste1</td>
+            <th>Chéques</th>
+            <td>@Model.Cheque</td>
+        </tr>
+        <tr>
+            <th>Poste 2</th>
+            <td>@Model.Poste2</td>
+            <th>TPE</th>
+            <td>@Model.TPE</td>
+        </tr>
+        <tr>
+            <th>Poste 3</th>
+            <td>@Model.Poste3</td>
+            <th>Crédit</th>
+            <td>@Model.Credit</td>
+        </tr>
+        <tr>
+            <th>Lavage</th>
+            <td>@Model.Lavage</td>
+            <th>SNDP</th>
+            <td>@Model.SNDP</td>
+        </tr>
+        <tr>
+            <th>Filtres</th>
+            <td>@Model.Filtres</td>
+            <th>Dépenses</th>
+            <td>@Model.Depenses</td>
+        </tr>
+        <tr>
+            <th>Lubrifiant</th>
+            <td>@Model.Lubrifiant</td>
+            <th>Crédit Gérant</th>
+            <td>@Model.CreditGerant</td>
+        </tr>
+        <tr>
+            <th>Autre</th>
+            <td>@Model.Autre</td>
+            <th>Sortie Contre Bon</th>
+            <td>@Model.SortieContreBon</td>
+        </tr>
+        <tr>
+            <th>Contre Bon</th>
+            <td>@Model.ContreBonTotal</td>
+        </tr>
+
+
+    </tbody>
+</table>
+
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>Valeur Contre Bon</th>
+            <th>Nombre</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ContreBon p in Model.ListContreBon)
+        {
+            <tr>
+                <td>@p.Valeur</td>
+                <td>@p.Nombre</td>
+            </tr>
+        }
+
+        <tr>
+            <th>Total contre Bon</th>
+            <td>@Model.ContreBonTotal</td>
+        </tr>
+
+
+    </tbody>
+</table>
